@@ -5,4 +5,13 @@ RUN apt update && apt install -yq --no-install-recommends \
     nano \
     net-tools iputils-ping+
 # tail es un proceso que nunca acaba 
-CMD [ "tail", "-f", "/dev/null" ]
+# Delegamos la configuracion de las imagenes a los llamos script points (scrpit de inicio para un contenedor)
+# CMD [ "tail", "-f", "/dev/null" ]
+
+RUN -p mkdir /root/base/Ubuntu/admin
+# Directorio actual dentro del contenedor
+WORKDIR /root/base/Ubuntu/admin
+COPY ./Dockerfile/base/Ubuntu/admin .
+RUN chmod o+x ./start.sh
+
+ENTRYPOINT [ "./start.sh" ]
