@@ -9,7 +9,7 @@ RUN apt update && apt install -yq --no-install-recommends \
 # CMD [ "tail", "-f", "/dev/null" ]
 
 RUN -p mkdir /root/base/Ubuntu/admin
-# Directorio actual dentro del contenedor
+# Directorio actual dentro del contenedor   
 WORKDIR /root/base/Ubuntu/admin
 COPY ./Dockerfile/base/Ubuntu/admin .
 RUN chmod o+x ./start.sh
