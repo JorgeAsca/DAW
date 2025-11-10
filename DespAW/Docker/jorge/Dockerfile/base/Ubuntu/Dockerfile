@@ -14,4 +14,5 @@ WORKDIR /root/base/Ubuntu/admin
 COPY ./Dockerfile/base/Ubuntu/admin .
 RUN chmod o+x ./start.sh
 
+# Script de arranque para crear la ISO y ejecutar el contenedor 
 ENTRYPOINT [ "./start.sh" ]
