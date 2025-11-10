@@ -1,18 +1,22 @@
 FROM ubuntu
+
+# Instalación de paquetes necesarios
 RUN apt update && apt install -yq --no-install-recommends \
     apache2 \
     curl \
     nano \
-    net-tools iputils-ping+
-# tail es un proceso que nunca acaba 
-# Delegamos la configuracion de las imagenes a los llamos script points (scrpit de inicio para un contenedor)
-# CMD [ "tail", "-f", "/dev/null" ]
+    net-tools \
+    iputils-ping
 
-RUN -p mkdir /root/admin/base
-# Directorio actual dentro del contenedor   
+# Crea el directorio si no existe (Corregido: mkdir -p)
+RUN mkdir -p /root/admin/base
+
+# Directorio actual dentro del contenedor
 WORKDIR /root/base/Ubuntu/admin
-COPY ./Dockerfile/base/Ubuntu/admin .
-RUN chmod o+x ./start.sh
 
-# Script de arranque para crear la ISO y ejecutar el contenedor 
+# Copia el script de inicio y le da permisos de ejecución
+COPY ./Dockerfile/base/Ubuntu/admin/start.sh .
+RUN chmod +x ./start.sh
+
+# El script de arranque
 ENTRYPOINT [ "./start.sh" ]
