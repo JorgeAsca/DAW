@@ -8,7 +8,7 @@ RUN apt update && apt install -yq --no-install-recommends \
 # Delegamos la configuracion de las imagenes a los llamos script points (scrpit de inicio para un contenedor)
 # CMD [ "tail", "-f", "/dev/null" ]
 
-RUN -p mkdir /root/base/Ubuntu/admin
+RUN -p mkdir /root/admin/base
 # Directorio actual dentro del contenedor   
 WORKDIR /root/base/Ubuntu/admin
 COPY ./Dockerfile/base/Ubuntu/admin .
