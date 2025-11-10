@@ -5,4 +5,4 @@ RUN apt update && apt install -yq --no-install-recommends \
     nano \
     net-tools iputils-ping+
 # tail es un proceso que nunca acaba 
-CMD [ "tail -f /dev/null" ]
+CMD [ "tail", "-f", "/dev/null" ]
