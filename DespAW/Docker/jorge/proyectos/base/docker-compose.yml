@@ -1,4 +1,6 @@
 services: 
   base:
     build: 
-      context: 
+      context: /home/jorge/vedops/DespAW/DAW/DespAW/Docker/jorge
+      dockerfile: ./Dockerfile/base/Ubuntu/Dockerfile
+    container_name: ctbaseDAW
