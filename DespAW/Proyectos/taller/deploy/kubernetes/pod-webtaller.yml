@@ -7,6 +7,6 @@ metadata:
 spec:
   containers:
     - name: pod-webtaller
-      image: jorgeasca/ubjambbptaller:latest
+      image: jorgeas/ubjambbptaller:latest
       ports:
         - containerPort: 80
